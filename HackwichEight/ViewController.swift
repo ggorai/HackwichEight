@@ -9,19 +9,35 @@
 import UIKit
 
 class ViewController: UIViewController {
+   
+    
     @IBOutlet weak var Slider: UISlider!
     
     var currentValue: Int = 0
     
+    // Part 3&4 Part 2a
+    var targetValue = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentValue = lroundf(Slider.value)
+        
+        targetValue = Int.random(in:0...100)
+        
+        startNewRound()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     @IBAction func GuessNumberPressed(_ sender: Any) {
        
-        let alert = UIAlertController(title: "Hello World", message: "This is my first alert view", preferredStyle: .alert)
+        
+        let message = "The value is: \(currentValue)" + "\n The Target Value is \(targetValue)"
+        
+        
+        let alert = UIAlertController(title: "Hello World", message: message, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Awesome", style: .default, handler: nil)
         
@@ -29,6 +45,8 @@ class ViewController: UIViewController {
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
+        
+        startNewRound()
         
         
     }
@@ -39,6 +57,26 @@ class ViewController: UIViewController {
         print("The Value of the Slider is:\(Slider.value)")
     
         currentValue = lroundf(Slider.value)
+        
+        
+        
+    }
+    func startNewRound()
+    
+    {
+    
+    targetValue = Int.random(in: 0...100)
+    currentValue = lroundf(Slider.value)
+    
+    }
+
+    
+    
+    //problem set #1
+    func updateTargetLabel{
+        
+        //Set targetLabel to display the targetValue
+        
+        
     }
 }
-
