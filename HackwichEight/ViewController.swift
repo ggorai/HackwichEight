@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
    
+    @IBOutlet weak var TargetLabel: UILabel!
     
     @IBOutlet weak var Slider: UISlider!
     
@@ -73,10 +74,10 @@ class ViewController: UIViewController {
     
     
     //problem set #1
-    func updateTargetLabel{
+    func updateTargetLabel(){
         
         //Set targetLabel to display the targetValue
-        
+        self.TargetLabel.text = String(targetValue)
         
     }
 }
